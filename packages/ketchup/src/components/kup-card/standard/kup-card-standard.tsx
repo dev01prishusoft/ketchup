@@ -1507,3 +1507,60 @@ export function create15(component: KupCard): VNode {
         </div>
     );
 }
+/**
+ * 16th standard layout, used to display information in string format.
+ * @param {KupCard} component - Card component.
+ * @returns {VNode} 1st standard layout virtual node.
+ */
+export function create16(component: KupCard): VNode {
+    //Title, subtitle and description
+    const textArray: string[] = component.data['text']
+        ? component.data['text']
+        : [];
+    const divs: VNode[] = [];
+    for (let index = 0; index < textArray.length; index++) {
+        const isEven: boolean = index % 2 == 0;
+        divs.push(
+            <span class={`text ${!isEven ? 'label' : ''}`}>
+                {textArray[index]}
+            </span>
+        );
+    }
+    return (
+        <div class={`standard-layout-${component.layoutNumber}`}>
+            <div class="section-1">{divs}</div>
+        </div>
+    );
+}
+/**
+ * 17th standard layout, used to display information in string format and features an highlighted row on top.
+ * @param {KupCard} component - Card component.
+ * @returns {VNode} 1st standard layout virtual node.
+ */
+export function create17(component: KupCard): VNode {
+    //Title, subtitle and description
+    const textArray: string[] = component.data['text']
+        ? component.data['text']
+        : [];
+    const divs: VNode[] = [];
+    //Loop starts from 2: [0] and [1] are the highlighted strings
+    for (let index = 2; index < textArray.length; index++) {
+        const isEven: boolean = index % 2 == 0;
+        divs.push(
+            <span class={`text ${!isEven ? 'label' : ''}`}>
+                {textArray[index]}
+            </span>
+        );
+    }
+    return (
+        <div class={`standard-layout-${component.layoutNumber}`}>
+            {textArray[0] && textArray[1] ? (
+                <div class="section-1">
+                    <div class="text label">{textArray[0]}</div>
+                    <div class="text ">{textArray[1]}</div>
+                </div>
+            ) : null}
+            <div class="section-2">{divs}</div>
+        </div>
+    );
+}

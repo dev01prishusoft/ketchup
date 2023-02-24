@@ -1,18 +1,15 @@
 @import 'box/kup-card-box';
 @import 'built-in/kup-card-built-in';
 @import 'collapsible/kup-card-collapsible';
-@import 'dialog/kup-card-dialog';
 @import 'free/kup-card-free';
 @import 'scalable/kup-card-scalable';
 @import 'standard/kup-card-standard';
 
 /**
-* @prop --kup-card-backdrop: Backdrop of the component when is visible.
 * @prop --kup-card-ripple-color: Sets color of ripple effect (for Material layouts).
 */
 
 :host {
-  --kup_card_backdrop: var(--kup-card-backdrop, rgba(0, 0, 0, 0.32));
   --kup_card_ripple_color: var(
     --kup-card-ripple-color,
     var(--kup-primary-color)
